@@ -1,4 +1,4 @@
-# Data Jobs Prediction
+# DS Jobs Salary Prediction
 ![Kaggle](https://img.shields.io/badge/Dataset-Kaggle-blue.svg) ![Python 3.7](https://img.shields.io/badge/Python-3.7-blueviolet.svg) ![Seaborn](https://img.shields.io/badge/Library-Seaborn-success.svg) ![Scikit-learn](https://img.shields.io/badge/Library-Scikit_Learn-orange.svg)
 
 ## Web app
