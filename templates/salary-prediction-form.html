@@ -1,0 +1,208 @@
+{% extends('base.html') %}
+
+{% block navitem1 %}<a class="nav-link active" href="{{url_for('home')}}">Salary Prediction</a>{% endblock %}
+
+{% block navitem2 %}<a class="nav-link" href="{{url_for('about')}}">About</a>{% endblock %}
+
+{% block content %}
+    <div class="container-fluid bg">
+        <div class="row justify-content-center">
+            <div class="col-6">
+                <form action="{{url_for('predict')}}" method="post" class="form-container">
+                    <legend id="title">Salary Calculator</legend>
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <label class="col-6" for="position">
+                                What Data Science job are you applying for ?
+                            </label>
+                            <div class="col-4">
+                                <select id="position" name="position" class="form-control">
+                                    <option value="d_analyst">Data Analyst</option>
+                                    <option value="d_scientist">Data Scientist</option>
+                                    <option value="d_engineer">Data Engineer</option>
+                                    <option value="d_architect">Data Architect</option>
+                                    <option value="bi_analyst">Business Intelligence Analyst</option>
+                                    <option value="ml_engineer">Machine Learning Engineer</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <label class="col-6" for="exp_lvl">
+                                What is your level of experience ?
+                            </label>
+                            <div class="col-4">
+                                <label class="radio-inline" for="exp_lvl-0">
+                                <input type="radio" name="exp_lvl" id="exp_lvl-0" value="1" checked>
+                                Junior
+                                </label> 
+                                <label class="radio-inline" for="exp_lvl-1">
+                                <input type="radio" name="exp_lvl" id="exp_lvl-1" value="2">
+                                Middle
+                                </label> 
+                                <label class="radio-inline" for="exp_lvl-2">
+                                <input type="radio" name="exp_lvl" id="exp_lvl-2" value="3">
+                                Senior
+                                </label> 
+                                <label class="radio-inline" for="exp_lvl-3">
+                                <input type="radio" name="exp_lvl" id="exp_lvl-3" value="4">
+                                Technical lead
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <label class="col-6" for="sector">
+                                In which sector are you seeking employment ?
+                            </label>
+                            <div class="col-4">
+                                <select id="sector" name="sector" class="form-control">
+                                    <option value="accounting">Accounting &amp; Legal</option>
+                                    <option value="aero">Aerospace &amp; Defense</option>
+                                    <option value="agriculture">Agriculture &amp; Forestry</option>
+                                    <option value="arts">Arts, Entertainment &amp; Recreation</option>
+                                    <option value="biotech">Biotech &amp; Pharmaceuticals</option>
+                                    <option value="b_services">Business Services</option>
+                                    <option value="construction">Construction, Repair &amp; Maintenance</option>
+                                    <option value="c_services">Consumer Services</option>
+                                    <option value="educ">Education</option>
+                                    <option value="finance">Finance</option>
+                                    <option value="government">Government</option>
+                                    <option value="health_care">Health Care</option>
+                                    <option value="it">Information Technology</option>
+                                    <option value="insurance">Insurance</option>
+                                    <option value="manufacturing">Manufacturing</option> 
+                                    <option value="media">Media</option>
+                                    <option value="mining">Mining &amp; Metals</option>
+                                    <option value="non_profit">Non-Profit</option>
+                                    <option value="oil_gas">Oil, Gas, Energy &amp; Utilities</option>
+                                    <option value="real_estate">Real Estate</option>
+                                    <option value="restaurants">Restaurants, Bars &amp; Food Services</option>                              
+                                    <option value="retail">Retail</option>
+                                    <option value="telecom">Telecommunications</option>
+                                    <option value="transport">Transportation &amp; Logistics</option>   
+                                    <option value="travel">Travel &amp; Tourism</option>                           
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <label class="col-6 control-label" for="state">In which state are you applying ?</label>
+                            <div class="col-4">
+                                <select id="state" name="state" class="form-control">
+                                    <option value="NY">NY</option>
+                                    <option value="NJ">NJ</option>
+                                    <option value="UT">UT</option>
+                                    <option value="CA">CA</option>
+                                    <option value="VA">VA</option>
+                                    <option value="FL">FL</option>
+                                    <option value="IL">IL</option>
+                                    <option value="TX">TX</option>
+                                    <option value="AZ">AZ</option>
+                                    <option value="PA">PA</option>
+                                    <option value="DE">DE</option>
+                                    <option value="OH">OH</option>
+                                    <option value="NC">NC</option>
+                                    <option value="SC">SC</option>
+                                    <option value="IN">IN</option>
+                                    <option value="WA">WA</option>
+                                    <option value="GA">GA</option>
+                                    <option value="KS">KS</option>
+                                    <option value="CO">CO</option>
+                                    <option value="UK">United Kingdom</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <label class="col-6 control-label" for="size">What's the size of the company ?</label>
+                            <div class="col-4">
+                                <select id="size" name="size" class="form-control">
+                                    <option value="1">1 to 50 employees</option>
+                                    <option value="2">51 to 200 employees</option>
+                                    <option value="3">201 to 500 employees</option>
+                                    <option value="4">501 to 1000 employees</option>
+                                    <option value="5">1001 to 5000 employees</option>
+                                    <option value="6">5001 to 10000 employees</option>
+                                    <option value="7">10000+ employees</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <label class="col-6 control-label" for="ownership">What's the type of ownership ?</label>
+                            <div class="col-4">
+                                <select id="ownership" name="ownership" class="form-control">
+                                    <option value="non_profit">Nonprofit Organization</option>
+                                    <option value="private">Company - Private</option>
+                                    <option value="subsidiary">Subsidiary or Business Segment</option>
+                                    <option value="public">Company - Public</option>
+                                    <option value="hospital">Hospital</option>
+                                    <option value="contract">Contract</option>
+                                    <option value="government">Government</option>
+                                    <option value="school">School / School District</option>
+                                    <option value="other">Other Organization</option>
+                                    <option value="college">College / University</option>
+                                    <option value="self_employed">Self-employed</option>
+                                    <option value="private_practice">Private Practice / Firm</option>
+                                    <option value="franchise">Franchise</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <label class="col-6 control-label" for="revenue">What's the annual revenue of the company ?</label>
+                            <div class="col-4">
+                                <select id="revenue" name="revenue" class="form-control">
+                                    <option value="1">Less than $1 million (USD)</option>
+                                    <option value="2">$1 to $5 million (USD)</option>
+                                    <option value="3">$5 to $10 million (USD)</option>
+                                    <option value="4">$10 to $25 million (USD)</option>
+                                    <option value="5">$25 to $50 million (USD)</option>
+                                    <option value="6">$50 to $100 million (USD)</option>
+                                    <option value="7">$100 to $500 million (USD)</option>
+                                    <option value="8">$500 million to $1 billion (USD)</option>
+                                    <option value="9">$1 to $2 billion (USD)</option>
+                                    <option value="10">$2 to $5 billion (USD)</option>
+                                    <option value="11">$5 to $10 billion (USD)</option>
+                                    <option value="12">$10+ billion (USD)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <label class="col-6 control-label" for="rating">What's the rating of the company ?</label>
+                            <div class="col-4">
+                                <input name="rating" id="rating" type="range" class="form-range" min="0" max="5" step="0.1" value="2.5" oninput="this.nextElementSibling.value = this.value">
+                                <output>2.5</output>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-4">
+
+                            <button type="submit" class="btn btn-primary">Submit</button>                          
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

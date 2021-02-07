@@ -1,0 +1,75 @@
+.form-container{
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px 0px #000;
+            text-align: center;
+        }
+
+#pred{
+    color: red;
+}
+        
+.btn-primary{
+    width: 100%;
+}
+
+.nav{          
+    margin-bottom: 10px;
+}
+
+.nav-link:hover{
+    color: #5499ff;
+}
+
+.nav a{
+    color: white;
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    text-decoration:none;
+}
+
+a.active {
+    text-decoration:underline;
+}
+
+
+footer{
+    color: white;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+
+body{
+    background: url('../static/bg.jpg') no-repeat ;
+    background-size: cover;
+}
+
+.row{
+    margin-bottom: 10px;
+}
+
+label{
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+}
+
+legend{
+    font-family: 'Noto Serif JP', serif;
+}
+
+#title{
+    margin-bottom: 15px;
+}
+
+/* Contact */
+.contact-icon{
+	color: #ffffff;
+	padding: 7px;
+}
+
+.contact-icon:hover{
+	color: #8c8c8c;
+}
